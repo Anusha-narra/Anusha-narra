@@ -1,0 +1,49 @@
+package crtcse;
+ public class thread {
+	 public static void main(String arg[])throws Exception{
+		 C obj=new C();
+		 B obj1=new B();
+		 obj.start();
+		 obj1.start();
+		 obj.setName("C thread");
+		 obj1.setName("B thread");
+	 }
+ }
+ class C  extends Thread
+     {
+	   public void show() 
+	   {   
+	     for(int i=1;i<=5;i++) 
+	     {
+	        System.out.println("Hello"+getName());
+	     try  
+	         { 
+	    	 Thread.sleep(1000);
+	    	 }
+	     catch (Exception e) {}
+	     }
+    }
+  
+ public void run() {
+	 show();
+ }
+  class B extends Thread 
+  {
+	  public void show()
+	  {
+	       for(int i=1;i<=5;i++)
+	       {
+	          System.out.println("hii"+getName());
+	  try { 
+		  Thread.sleep(1000);
+		  } catch(Exception e) {}
+	       }
+	  }
+	  
+	  public void run()
+	  {
+		  show();
+  }	 
+	 }
+	 
+ }
